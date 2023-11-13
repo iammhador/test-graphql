@@ -1,10 +1,18 @@
 export const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
+  type Product {
+    id: ID!,
+    name: String,
+    image: String,
+    description:
+    String,
+    price: Float,
+    quantity: Int,
+    onStock: Boolean,
+    categoryId: String,
   }
   
   type Query {
-    books: [Book]
+    products: [Product]
+    product(productId: ID!): Product
   }
 `;

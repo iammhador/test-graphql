@@ -1,15 +1,9 @@
+import { db } from "../../db.js";
 export const resolvers = {
     Query: {
-        books: () => books,
+        products: () => db.products,
+        product: (parent, args, context) => {
+            return db.products.find((product) => product.id === args.productId);
+        },
     },
 };
-const books = [
-    {
-        title: "The Awakening",
-        author: "Kate Chopin",
-    },
-    {
-        title: "City of Glass",
-        author: "Paul Auster",
-    },
-];
